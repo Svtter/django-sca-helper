@@ -1,5 +1,5 @@
 exclude pytest.ini
-exclude venv
+recursive-exclude venv
 exclude .github
-exclude conf
+recursive-exclude conf
 exclude manage.py
