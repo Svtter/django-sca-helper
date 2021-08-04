@@ -3,8 +3,10 @@ import django_helper
 
 version = django_helper.__version__
 
-LONG_DESCRIPTION = """
-"""
+with open('README.md', 'r') as f:
+    description = f.read()
+
+LONG_DESCRIPTION = description
 
 setup(
     name='django-sca-helper',
