@@ -1,30 +1,7 @@
 import pytest
 from django.test import Client
-
-from django_helper.code import success_dict
-from apps.libs.factories import purchase_category_and_factory
 from .. import test
 from ..code import Code
-
-
-def test_groups():
-    test_data = purchase_category_and_factory.PurchaseCategoryAndPlantFactory().details_as_response(
-        "B3"
-    )
-    test.groups_test("dataList", test_data)
-    with pytest.raises(AssertionError):
-        test.groups_test("groups", test_data)
-
-
-def test_details():
-    details_data = purchase_category_and_factory.PurchaseCategoryAndPlantFactory().details_as_response(
-        "B3"
-    )
-    test_data = success_dict(msg="success", data=details_data)
-    test.details_test(test_data)
-    test_data = {"test": "test"}
-    with pytest.raises(AssertionError):
-        test.details_test(test_data)
 
 
 def test_assert_instance():
