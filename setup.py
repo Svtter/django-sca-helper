@@ -24,6 +24,14 @@ setup(
     license='BSD',
     packages=find_packages(),
     install_requires=['django>=2.1.*'],
+    extras_require={
+        'dev': [
+            'pytest',
+            'pytest-pep8',
+            'pytest-cov',
+            'pytest-django'
+        ]
+    },
     include_package_data=True,
     zip_safe=False,
 )

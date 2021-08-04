@@ -1,0 +1,5 @@
+exclude pytest.ini
+exclude venv
+exclude .github
+exclude conf
+exclude manage.py
