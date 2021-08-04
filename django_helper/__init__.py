@@ -4,4 +4,4 @@ Water sword team django_helper.
 May be used in next project.
 """
 
-__version__ = '0.1.3'
+__version__ = '0.1.4'
