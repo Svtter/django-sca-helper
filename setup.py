@@ -12,6 +12,7 @@ setup(
     name='django-sca-helper',
     version=version,
     description="A set of useful for Django SCA.",
+    long_description_content_type="text/markdown",
     long_description=LONG_DESCRIPTION,
     classifiers=[
         "Programming Language :: Python",
