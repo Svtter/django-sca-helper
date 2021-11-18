@@ -10,14 +10,14 @@ def test_code_enum_value():
 
 
 def test_success_response():
-    res = success_response(msg="hello", data="test")
+    res = success_response(msg="hello", data={})
     res = res.content
     res = json.loads(res)
     test.assert_code(res, Code.SUCCESS)
 
 
 def test_error_response():
-    res = error_response(msg="hello")
+    res = error_response(msg="hello", data={})
     res = res.content
     res = json.loads(res)
     test.assert_code(res, Code.FAILED)
