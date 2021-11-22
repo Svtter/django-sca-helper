@@ -110,7 +110,7 @@ def assert_response(client: Client, urls: str, data: dict = None):
 
 
 def assert_key_value_types(
-    data: dict, keys: Tuple[str, ...], value_types: Tuple[Any, ...]
+        data: dict, keys: Tuple[str, ...], value_types: Tuple[Any, ...]
 ):
     for key, value_type in zip(keys, value_types):
         assert key in data.keys(), (key, data)
@@ -126,3 +126,11 @@ def assert_response_format(resp_json: dict):
 def assert_code(resp_json: dict, code: Code):
     if Code(resp_json.get("code")) != code:
         raise AssertionError(f"code: {code} != code in {resp_json}")
+
+
+def assert_code_success(resp_json: dict):
+    assert resp_json.get('code') == Code.SUCCESS
+
+
+def assert_code_failed(resp_json: dict):
+    assert resp_json.get('code') == Code.FAILED

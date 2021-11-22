@@ -1,7 +1,7 @@
 import pytest
 from django.test import Client
 from .. import test
-from ..code import Code
+from ..code import Code, success_dict, error_dict
 
 
 def test_assert_instance():
@@ -98,3 +98,15 @@ def test_assert_key_value():
     with pytest.raises(AssertionError):
         value_types = value_types[1:]
         test.assert_key_value_types(data, keys, value_types)
+
+
+def test_assert_code():
+    resp_1 = success_dict('', {})
+    resp_2 = error_dict('', {})
+
+    test.assert_code_success(resp_1)
+    test.assert_code_failed(resp_2)
+
+    with pytest.raises(AssertionError):
+        test.assert_code_failed(resp_1)
+        test.assert_code_success(resp_2)
